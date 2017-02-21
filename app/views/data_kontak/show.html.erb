@@ -1,24 +1,14 @@
 <div class="container">
-  <table class="table -table-hover">
-    <thead>
-      <tr>
-        <th>Nama</th>
-        <th>Alamat</th>
-        <th>No Telepon</th>
-        <th>Email</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @kontaks.each do |kontak| %>
-      <tr>
-        <td>kontak.nama</td>
-        <td>kontak.alamat</td>
-        <td>kontak.no_telp</td>
-        <td>kontak.almt_email</td>
-        <td><%= link_to 'Edit','#' %> <%= link_to 'Hapus', '#' %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <p>
+    nama: <%= @kontak.nama %>
+  </p>
+  <p>
+    alamat: <%= @kontak.alamat %>
+  </p>
+  <p>
+    no telepon: <%= @kontak.no_telp %>
+  </p>
+  <p>
+    email: <%= @kontak.almt_email %>
+  </p>
 </div>

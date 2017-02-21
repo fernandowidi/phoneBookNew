@@ -1,4 +1,5 @@
 <div class="container">
+  <h1><%= current_user.email %></h1>
   <table class="table -table-hover">
     <thead>
       <tr>
@@ -12,13 +13,14 @@
     <tbody>
       <% @kontaks.each do |kontak| %>
       <tr>
-        <td>kontak.nama</td>
-        <td>kontak.alamat</td>
-        <td>kontak.no_telp</td>
-        <td>kontak.almt_email</td>
+        <td><%= kontak.nama %></td>
+        <td><%= kontak.alamat %></td>
+        <td><%= kontak.no_telp %></td>
+        <td><%= kontak.almt_email %></td>
         <td><%= link_to 'Edit','#' %> <%= link_to 'Hapus', '#' %></td>
       </tr>
       <% end %>
     </tbody>
   </table>
+</div>
 </div>
