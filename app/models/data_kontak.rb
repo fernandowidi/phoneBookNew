@@ -1,0 +1,2 @@
+class DataKontak < ApplicationRecord
+end
