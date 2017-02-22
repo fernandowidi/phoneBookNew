@@ -9,7 +9,7 @@
       </button>
       <!--a class="navbar-brand" href="index">Phone Book</a-->
       <% if user_signed_in? %>
-        <%= link_to 'Phone Book', phonebook_dashboard_path , class: 'navbar-brand' %>
+        <%= link_to 'Phone Book', data_kontak_index_path , class: 'navbar-brand' %>
       <% else %>
         <%= link_to 'Phone Book', root_path, class: 'navbar-brand'%>
       <% end %>
@@ -18,7 +18,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li><%= link_to current_user.email, edit_user_registration_path %>
-          <li><%= link_to 'New Contact', new_data_kontak_path %></li>
+          <li><%= link_to 'New Contact', new_data_kontak_path, remote: true %></li>
           <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to 'Login', new_user_session_path %></li>

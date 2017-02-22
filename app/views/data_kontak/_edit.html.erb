@@ -1,0 +1,16 @@
+<%= form_for :kontak, url: data_kontak_path(@kontak), method: :patch do |f| %>
+  <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" style="display: none">
+    <div class="modal-dialog">
+      <div class="loginmodal-container">
+        <h2>Edit Kontak</h2>
+        <form>
+          <%= f.text_field :nama %>
+          <%= f.text_field :no_telp %>
+          <%= f.text_field :alamat %>
+          <%= f.email_field :almt_email %>
+          <%= f.submit "Simpan", class: 'login loginmodal-submit' %>
+        </form>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
         request.path != "/users/confirmation" &&
         request.path != "/users/sign_out" &&
         !request.xhr?)
-        store_location_for(:user, "data_kontak/index")
+        store_location_for(:user, data_kontak_index_path)
     end
   end
 end

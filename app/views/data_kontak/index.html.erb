@@ -17,7 +17,9 @@
         <td><%= kontak.alamat %></td>
         <td><%= kontak.no_telp %></td>
         <td><%= kontak.almt_email %></td>
-        <td><%= link_to 'Edit','#' %> <%= link_to 'Hapus', '#' %></td>
+        <td><%= link_to 'Edit', edit_data_kontak_path(kontak), remote: true %>
+        <%= link_to 'Hapus', data_kontak_path(kontak), method: :delete,
+        data: { confirm: 'Apakah Anda Yakin?'} %></td>
       </tr>
       <% end %>
     </tbody>
