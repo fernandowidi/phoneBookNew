@@ -1,6 +1,9 @@
 class DataKontakController < ApplicationController
+  before_action :authenticate_user!
+  load_and_authorize_resource
+
   def index
-    @kontaks = DataKontak.all
+    @kontaks = DataKontak.accessible_by(current_ability)
   end
 
   def edit
@@ -20,7 +23,7 @@ class DataKontakController < ApplicationController
       render 'edit'
     end
   end
-  
+
   def create
     @kontak = DataKontak.new(kontak_params)
 
@@ -36,6 +39,6 @@ class DataKontakController < ApplicationController
 
   private
     def kontak_params
-      params.require(:kontak).permit(:nama, :alamat, :no_telp, :almt_email)
+      params.require(:kontak).permit(:nama, :alamat, :no_telp, :almt_email, :user_id)
     end
 end

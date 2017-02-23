@@ -8,6 +8,7 @@
           <%= f.text_field :no_telp, placeholder: "No Telepon" %>
           <%= f.text_field :alamat, placeholder: "Alamat" %>
           <%= f.email_field :almt_email, placeholder: "Email" %>
+          <%= f.hidden_field :user_id, :value => current_user.id %>
           <%= f.submit "Simpan", class: 'login loginmodal-submit' %>
         </form>
       </div>
