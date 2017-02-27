@@ -27,8 +27,11 @@ class DataKontakController < ApplicationController
   def create
     @kontak = DataKontak.new(kontak_params)
 
-    @kontak.save
-    redirect_to data_kontak_index_path
+    if @kontak.save(kontak_params)
+      redirect_to data_kontak_index_path
+    else
+      render 'new'
+    end
   end
 
   def destroy
