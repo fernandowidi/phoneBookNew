@@ -10,11 +10,13 @@ RSpec.describe DataKontak, type: :model do
     expect(build(:Data, nama: nil)).to_not be_valid
   end
 
-  it "data tanpa no" do
+  it "data tanpa no telepon" do
     expect(build(:Data, no_telp: nil)).to_not be_valid
   end
 
-  it "data no selain angka" do
-    expect(build(:Data, no_telp: numericality)).to_not be_valid
+  it "data no telepon selain angka" do
+    expect(build(:Data, no_telp: 'sasa')).to_not be_valid
   end
+
+  it { should belong_to (:user) }
 end

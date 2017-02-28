@@ -31,7 +31,7 @@ class Ability
 
     alias_action :create, :read, :update, :destroy, :to => :crud
 
-    if user.role == "adm"
+    if user.role == 'adm'
       can :manage, :all
     else
       can :crud, DataKontak, user_id: user.id
