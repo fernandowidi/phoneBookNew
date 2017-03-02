@@ -29,11 +29,11 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
 
-    alias_action :create, :read, :update, :destroy, :to => :crud
+    alias_action :create, :read, :update, :destroy, :index, :to => :crud
 
     if user.role == 'adm'
       can :manage, :all
-    else
+    elsif user.role == 'usr'
       can :crud, DataKontak, user_id: user.id
     end
 
