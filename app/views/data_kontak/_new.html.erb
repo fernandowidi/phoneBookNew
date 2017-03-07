@@ -2,6 +2,19 @@
   <div class="modal fade" id="form-modal" tabindex="-1" role="dialog" style="display: none">
     <div class="modal-dialog">
       <div class="loginmodal-container">
+        <% if @kontak.errors.any? %>
+          <div id="error explanation">
+            <h2>
+              <%= pluralize(@kontak.errors.count, "error") %>
+              prohibited this article from being saved:
+            </h2>
+            <ul>
+              <% @kontak.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
         <h2>Kontak Baru</h2>
         <form>
           <%= f.text_field :nama, placeholder: "Nama" %>

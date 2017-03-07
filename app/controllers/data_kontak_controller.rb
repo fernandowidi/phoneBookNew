@@ -18,9 +18,9 @@ class DataKontakController < ApplicationController
     @kontak = DataKontak.find(params[:id])
 
     if @kontak.update(kontak_params)
-      redirect_to data_kontak_index_path
+      redirect_to root_path
     else
-      render 'edit'
+      redirect_to 'edit'
     end
   end
 
@@ -28,16 +28,16 @@ class DataKontakController < ApplicationController
     @kontak = DataKontak.new(kontak_params)
 
     if @kontak.save
-      redirect_to data_kontak_index_path
+      redirect_to root_path
     else
-      render 'new'
+      redirect_to 'new'
     end
   end
 
   def destroy
     @kontak = DataKontak.find(params[:id])
     @kontak.destroy
-    redirect_to data_kontak_index_path
+    redirect_to root_path
   end
 
   private
