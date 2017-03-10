@@ -12,15 +12,15 @@
     </thead>
     <tbody>
       <% @kontaks.each do |kontak| %>
-      <tr>
-        <td><%= kontak.nama %></td>
-        <td><%= kontak.alamat %></td>
-        <td><%= kontak.no_telp %></td>
-        <td><%= kontak.almt_email %></td>
-        <td><%= link_to 'Edit', edit_data_kontak_path(kontak), class: 'btn btn-primary', remote: true %>
-        <%= link_to 'Hapus', data_kontak_path(kontak), class: 'btn btn-primary', method: :delete,
-        data: { confirm: 'Are You Sure?'} %></td>
-      </tr>
+        <tr>
+          <td><%= kontak.nama %></td>
+          <td><%= kontak.alamat %></td>
+          <td><%= kontak.no_telp %></td>
+          <td><%= kontak.almt_email %></td>
+          <td><%= link_to 'Edit', edit_data_kontak_path(kontak), class: 'btn btn-primary', remote: true %>
+          <%= link_to 'Hapus', data_kontak_path(kontak), class: 'btn btn-primary', method: :delete,
+          data: { confirm: 'Are You Sure?'} %></td>
+        </tr>
       <% end %>
     </tbody>
   </table>

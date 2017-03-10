@@ -34,7 +34,7 @@ class Ability
     if user.role == 'adm'
       can :manage, :all
     elsif user.role == 'usr'
-      can :crud, DataKontak, user_id: user.id
+      can :manage, DataKontak, user_id: user.id
     end
 
   end

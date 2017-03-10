@@ -18,23 +18,25 @@ class DataKontakController < ApplicationController
   def update
     @kontak = DataKontak.find(params[:id])
     respond_to do |format|
-      format.js
       if @kontak.update(kontak_params)
-        render js: "window.location='#{root_path}'"
+        format.html { redirect_to root_path }
+        format.js { render js: "window.location='#{root_path}'" }
       else
         format.html { render 'edit' }
+        format.js
       end
     end
   end
 
   def create
-    @kontak = DataKontak.new(kontak_params)
+    @kontak = current_user.data_kontak.new(kontak_params)
     respond_to do |format|
-      format.js
       if @kontak.save
-        render js: "window.location='#{root_path}'"
+        format.html { redirect_to root_path }
+        format.js { render js: "window.location='#{root_path}'" }
       else
         format.html { render 'new' }
+        format.js
       end
     end
   end
@@ -47,6 +49,6 @@ class DataKontakController < ApplicationController
 
   private
     def kontak_params
-      params.require(:kontak).permit(:nama, :alamat, :no_telp, :almt_email, :user_id)
+      params.require(:kontak).permit(:nama, :alamat, :no_telp, :almt_email)
     end
 end

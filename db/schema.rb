@@ -13,9 +13,9 @@
 ActiveRecord::Schema.define(version: 20170223091154) do
 
   create_table "data_kontaks", force: :cascade do |t|
-    t.string   "nama"
+    t.string   "nama",       null: false
     t.string   "alamat"
-    t.string   "no_telp"
+    t.string   "no_telp",    null: false
     t.string   "almt_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
