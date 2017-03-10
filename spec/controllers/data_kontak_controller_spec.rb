@@ -31,11 +31,6 @@ RSpec.describe DataKontakController, type: :controller do
         kontak_params = FactoryGirl.attributes_for(:data)
         expect { post :create, params: { kontak: kontak_params } }.to change(DataKontak, :count).by(1)
       end
-
-      it "redirect ke index home" do
-        post :create, params: { kontak: FactoryGirl.attributes_for(:data) }
-        expect {response}.should redirect_to data_kontak_index_path
-      end
     end
     context "invalid attribute" do
       it "field nama kosong" do
@@ -57,7 +52,7 @@ RSpec.describe DataKontakController, type: :controller do
     context "render new saat data invalid" do
       kontak_params = FactoryGirl.attributes_for(:data, no_telp: nil)
       subject { post :create, params: { kontak: kontak_params } }
-      it { should render_template ('new') }
+      it { should render_template ('create') }
     end
   end
 
@@ -96,11 +91,6 @@ RSpec.describe DataKontakController, type: :controller do
         @data.reload
         @data.almt_email.should eq("blabla@yahoo.com")
       end
-
-      it "redirect ke index saat berhasil update" do
-        put :update, params: { id: @data.id, kontak: FactoryGirl.attributes_for(:data) }
-        expect {response}.should redirect_to data_kontak_index_path
-      end
     end
 
     context "invalid attribut" do
@@ -118,7 +108,7 @@ RSpec.describe DataKontakController, type: :controller do
     end
     context "render edit" do
       subject { put :update, params: { id: @data.id, kontak: FactoryGirl.attributes_for(:data, nama: nil) } }
-      it { should render_template ('edit') }
+      it { should render_template 'update' }
     end
   end
 
@@ -136,7 +126,7 @@ RSpec.describe DataKontakController, type: :controller do
 
     it "redirect ke index" do
       delete :destroy, params: { id: @data.id }
-      expect {response}.should redirect_to data_kontak_index_path
+      expect {response}.should redirect_to root_path
     end
   end
 end

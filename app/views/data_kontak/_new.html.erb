@@ -1,29 +1,18 @@
-<%= form_for :kontak, url: data_kontak_index_path do |f| %>
+<%= form_for :kontak, url: data_kontak_index_path, remote: true do |f| %>
   <div class="modal fade" id="form-modal" tabindex="-1" role="dialog" style="display: none">
     <div class="modal-dialog">
       <div class="loginmodal-container">
-        <% if @kontak.errors.any? %>
-          <div id="error explanation">
-            <h2>
-              <%= pluralize(@kontak.errors.count, "error") %>
-              prohibited this article from being saved:
-            </h2>
-            <ul>
-              <% @kontak.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-        <h2>Kontak Baru</h2>
-        <form>
-          <%= f.text_field :nama, placeholder: "Nama" %>
-          <%= f.text_field :no_telp, placeholder: "No Telepon" %>
-          <%= f.text_field :alamat, placeholder: "Alamat" %>
-          <%= f.email_field :almt_email, placeholder: "Email" %>
-          <%= f.hidden_field :user_id, :value => current_user.id %>
-          <%= f.submit "Simpan", class: 'login loginmodal-submit' %>
-        </form>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2>Kontak Baru</h2>
+          <div id=error_statement></div>
+        </div>
+        <%= f.text_field :nama, placeholder: "Nama" %>
+        <%= f.text_field :no_telp, placeholder: "No Telepon" %>
+        <%= f.text_field :alamat, placeholder: "Alamat" %>
+        <%= f.email_field :almt_email, placeholder: "Email" %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.submit "Simpan", class: 'login loginmodal-submit' %>
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 <div class="container">
-  <h1><%= current_user.email %></h1>
+  <h2><%= current_user.email %></h2>
   <table class="table -table-hover">
     <thead>
       <tr>
@@ -17,9 +17,9 @@
         <td><%= kontak.alamat %></td>
         <td><%= kontak.no_telp %></td>
         <td><%= kontak.almt_email %></td>
-        <td><%= link_to 'Edit', edit_data_kontak_path(kontak), remote: true %>
-        <%= link_to 'Hapus', data_kontak_path(kontak), method: :delete,
-        data: { confirm: 'Apakah Anda Yakin?'} %></td>
+        <td><%= link_to 'Edit', edit_data_kontak_path(kontak), class: 'btn btn-primary', remote: true %>
+        <%= link_to 'Hapus', data_kontak_path(kontak), class: 'btn btn-primary', method: :delete,
+        data: { confirm: 'Are You Sure?'} %></td>
       </tr>
       <% end %>
     </tbody>

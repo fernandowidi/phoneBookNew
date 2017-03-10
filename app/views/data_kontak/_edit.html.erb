@@ -1,28 +1,17 @@
-<%= form_for :kontak, url: data_kontak_path(@kontak), method: :patch do |f| %>
-  <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" style="display: none">
+<%= form_for :kontak, url: data_kontak_path(@kontak), method: :patch, remote: true do |f| %>
+  <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" style="display: block">
     <div class="modal-dialog">
       <div class="loginmodal-container">
-        <% if @kontak.errors.any? %>
-          <div id="error explanation">
-            <h2>
-              <%= pluralize(@article.errors.count, "error") %>
-              prohibited this article from being saved:
-            </h2>
-            <ul>
-              <% @kontak.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-        <h2>Edit Kontak</h2>
-        <form>
-          <%= f.text_field :nama %>
-          <%= f.text_field :no_telp %>
-          <%= f.text_field :alamat %>
-          <%= f.email_field :almt_email %>
-          <%= f.submit "Simpan", class: 'login loginmodal-submit' %>
-        </form>
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2>Edit Kontak</h2>
+          <div id=error_edit></div>
+        </div>
+        <%= f.text_field :nama %>
+        <%= f.text_field :no_telp %>
+        <%= f.text_field :alamat %>
+        <%= f.email_field :almt_email %>
+        <%= f.submit "Simpan", class: 'login loginmodal-submit' %>
       </div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 class DataKontak < ApplicationRecord
   belongs_to :user
   validates_associated :user
-  validates :nama, presence: true
-  validates :no_telp, presence: true, numericality: { only_integer: true }
+  validates :nama, presence: { message: 'Tidak Boleh Kosong' }
+  validates :no_telp, presence: { message: 'Tidak Boleh Kosong' }, numericality: { only_integer: true, message: 'Harus Angka' }
 end
