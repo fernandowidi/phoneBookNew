@@ -89,7 +89,7 @@ RSpec.feature "DataKontaks", type: :feature do
       fill_in 'kontak_almt_email', :with => 'fernando@test.com'
       click_button ('Simpan')
      end
-     save_and_open_page
+    #  save_and_open_page
      expect(page).to have_content 'fernando'
    end
    it 'edit kontak', :js => true do
