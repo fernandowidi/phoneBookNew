@@ -1,5 +1,4 @@
 class DataKontakController < ApplicationController
-  # respond_to :html, :js
   before_action :authenticate_user!
   load_and_authorize_resource
 
