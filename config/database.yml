@@ -5,13 +5,17 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
+  adapter: postgresql
+  encoding: unicode
+  username: postgres
+  password: postgres
+  host: localhost
   pool: 5
   timeout: 5000
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: phonebook_development
   # database: db/test.sqlite3
 
 # Warning: The database defined as "test" will be erased and
@@ -19,8 +23,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
+  database: phonebook_test
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: phonebook_production
