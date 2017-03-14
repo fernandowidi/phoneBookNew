@@ -28,4 +28,5 @@ test:
 
 production:
   <<: *default
+  host: localhost
   database: phonebook_production
