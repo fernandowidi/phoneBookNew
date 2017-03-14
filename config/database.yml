@@ -27,9 +27,6 @@ test:
   database: phonebook_test
 
 production:
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-  timeout: 5000
-  # host: localhost
+  <<: *default
+  host: localhost
   database: phonebook_production
