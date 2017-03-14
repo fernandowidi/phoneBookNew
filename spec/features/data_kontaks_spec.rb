@@ -144,7 +144,7 @@ RSpec.feature "DataKontaks", type: :feature do
          click_button ('Simpan')
        end
        expect(page).to have_content 'No telp Tidak Boleh Kosong'
-       binding.pry
+      #  binding.pry
       #  # save_and_open_page
      end
 

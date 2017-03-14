@@ -65,31 +65,31 @@ RSpec.describe DataKontakController, type: :controller do
     context "valid attribute" do
       it "mencari data yang diminta" do
         put :update, params: { id: @data.id, kontak: FactoryGirl.attributes_for(:data) }
-        assigns(:kontak).should eq(@data)
+        expect(assigns(:kontak)).to eq(@data)
       end
 
       it "update nama" do
         put :update, params: { id: @data.id, kontak: FactoryGirl.attributes_for(:data, nama: "Ganet") }
         @data.reload
-        @data.nama.should eq("Ganet")
+        expect(@data.nama).to eq("Ganet")
       end
 
       it "update no telepon" do
         put :update, params: { id: @data.id, kontak: FactoryGirl.attributes_for(:data, no_telp: "008") }
         @data.reload
-        @data.no_telp.should eq("008")
+        expect(@data.no_telp).to eq("008")
       end
 
       it "update alamat" do
         put :update, params: { id: @data.id, kontak: FactoryGirl.attributes_for(:data, alamat: "jojojojo") }
         @data.reload
-        @data.alamat.should eq("jojojojo")
+        expect(@data.alamat).to eq("jojojojo")
       end
 
       it "update email" do
         put :update, params: { id: @data.id, kontak: FactoryGirl.attributes_for(:data, almt_email: "blabla@yahoo.com") }
         @data.reload
-        @data.almt_email.should eq("blabla@yahoo.com")
+        expect(@data.almt_email).to eq("blabla@yahoo.com")
       end
     end
 
@@ -97,13 +97,13 @@ RSpec.describe DataKontakController, type: :controller do
       it "nama kosong" do
         put :update, params: { id: @data.id, kontak: FactoryGirl.attributes_for(:data, nama: nil) }
         @data.reload
-        @data.nama.should_not eq(nil)
+        expect(@data.nama).to_not eq(nil)
       end
 
       it "no telepon kosong" do
         put :update, params: { id: @data.id, kontak: FactoryGirl.attributes_for(:data, no_telp: nil) }
         @data.reload
-        @data.no_telp.should_not eq(nil)
+        expect(@data.no_telp).to_not eq(nil)
       end
     end
     context "render edit" do
@@ -126,7 +126,7 @@ RSpec.describe DataKontakController, type: :controller do
 
     it "redirect ke index" do
       delete :destroy, params: { id: @data.id }
-      expect {response}.should redirect_to root_path
+      expect(response).to redirect_to root_path
     end
   end
 end
